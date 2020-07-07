@@ -29,8 +29,8 @@ class GenerateDartBeanAction : AnAction() {
             generateDartBean(className, linkedTreeMap)
             val targetList = dartClassList.reversed()
             val sb = StringBuilder()
-            sb.append("import 'package:flutter_beike_parse_package/annotation/route_page.dart';\n" +
-                    "import 'package:flutter_beike_parse_package/annotation/parse_helper.dart';\n")
+            sb.append("import 'package:flutter_beike_parse_helper_package/annotation/json_parse_annotation.dart';\n" +
+                    "import 'package:flutter_beike_parse_helper_package/helper/parse_helper.dart';\n")
 
             val file = event.getRequiredData(CommonDataKeys.VIRTUAL_FILE)
             sb.appendln("part '${file.name.replaceFirst(".dart", "")}.parse.dart';")
