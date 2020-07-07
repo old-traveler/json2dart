@@ -24,7 +24,7 @@ apply plugin: 'org.jetbrains.intellij'
 
 
 group 'com.hyc.json2dart'
-version '1.0-SNAPSHOT'
+version '1.1-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -45,6 +45,13 @@ compileKotlin {
     }
 }
 
+task copyJar(type:Copy){
+    from configurations.runtime
+    into ('build/libs/lib')
+}
+task release(type: Copy,dependsOn: [build,copyJar]) {
+
+}
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version '2019.1.3'
