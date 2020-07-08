@@ -45,8 +45,8 @@ class GenerateDartBeanAction : AnAction() {
                 sb.appendln()
                 sb.appendln("  ${it.className}();")
                 sb.appendln()
-                sb.appendln("  ${it.className}.fromJson(Map<String, dynamic> json) {")
-                sb.appendln("    _\$${it.className}FromJson(json);")
+                sb.appendln("  factory ${it.className}.fromJson(Map<String, dynamic> json) {")
+                sb.appendln("    return _\$${it.className}FromJson(json);")
                 sb.appendln("  }")
 
                 sb.appendln()
