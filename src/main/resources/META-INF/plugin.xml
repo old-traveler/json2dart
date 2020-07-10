@@ -1,12 +1,11 @@
 <idea-plugin>
     <id>com.hyc.json2dart.json2dart</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <name>json to dart</name>
+    <vendor email="http://wiki.lianjia.com/pages/viewpage.action?pageId=646735327" url="http://www.personl.com">platc</vendor>
 
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-    ]]></description>
+    <description>According to the usage guide of apt, although apt is very flexible and convenient in generating parsing code, it still needs to write dart entity manually and add corresponding annotation and construction method
+        This is also a tedious and time-consuming point for developers. Therefore, we have developed a set of idea plug-ins to generate the corresponding dart entity description file according to the JSON information, which can greatly speed up our work efficiency
+        At present, the idea plug-in only supports the plug-ins of idea and Android studio, and plans to support vs Code in the future</description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
@@ -14,13 +13,18 @@
     <depends>com.intellij.modules.lang</depends>
     -->
 
+    <idea-version since-build="145.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
     </extensions>
 
     <actions>
         <!-- Add your actions here -->
-        <action id="com.hyc.GenerateDartAction" class="com.hyc.GenerateDartAction" text="GenerateDartAction"
+        <action id="com.hyc.GenerateDartBeanAction" class="com.hyc.GenerateDartBeanAction" text="GenerateDartBeanAction"
                 description="GenerateDartAction">
             <add-to-group group-id="GenerateGroup" anchor="first"/>
         </action>

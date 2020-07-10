@@ -12,7 +12,6 @@ buildscript {
 }
 
 plugins {
-    id 'java'
     id 'org.jetbrains.intellij' version '0.4.21'
 }
 
@@ -21,16 +20,16 @@ apply plugin: 'kotlin'
 apply plugin: 'org.jetbrains.intellij'
 
 
-
-
 group 'com.hyc.json2dart'
-version '1.1.2-SNAPSHOT'
+version '1.1.3-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
+
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
@@ -45,6 +44,10 @@ compileKotlin {
     }
 }
 
+patchPluginXml {
+    untilBuild ''
+}
+
 task copyJar(type:Copy){
     from configurations.runtime
     into ('build/libs/lib')
@@ -55,9 +58,11 @@ task release(type: Copy,dependsOn: [build,copyJar]) {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version '2019.1.3'
+    pluginName 'JsonToDartBean'
 }
 patchPluginXml {
     changeNotes """
       Add change notes here.<br>
       <em>most HTML tags may be used</em>"""
 }
+

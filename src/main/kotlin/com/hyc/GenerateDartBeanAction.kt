@@ -16,6 +16,7 @@ class GenerateDartBeanAction : AnAction() {
 
     private val dartClassList = mutableListOf<DartClass>()
     override fun actionPerformed(event: AnActionEvent) {
+        dartClassList.clear()
         val jsonString: String
         try {
             val project = event.getData(PlatformDataKeys.PROJECT) ?: return
